@@ -63,6 +63,12 @@ const project = computed(() => localizedProjects.value.find((p) => p.slug === sl
           ><span class="material-symbols-outlined !text-gray-600"> code </span>
           {{ t.project.github }}</a
         >
+        <a
+          v-if="project?.links.demo"
+          class="text-xs text-red-700 space-grotesk-text flex justify-start items-center flex-row gap-1 hover:text-red-500 transition-all duration-300 pointer-events-none"
+          ><span class="material-symbols-outlined !text-gray-600"> language </span
+          >{{ t.project.warning }}</a
+        >
       </div>
     </div>
 

@@ -43,6 +43,7 @@ const en = {
     problem: "Problem",
     architecture: "Architecture",
     next: "What Would I Do Next",
+    warning: "The backend for this project is currently not hosted, so the live demo is unavailable. The frontend is still viewable.",
   },
 };
 
@@ -92,6 +93,7 @@ const id: typeof en = {
     problem: "Masalah",
     architecture: "Arsitektur",
     next: "Rencana Selanjutnya",
+    warning: "Backend untuk proyek ini saat ini tidak dihosting, sehingga demo langsung tidak tersedia. Frontend masih dapat dilihat."
   },
 };
 

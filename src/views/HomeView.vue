@@ -20,7 +20,7 @@ const skill = [
 
 const contacts = computed(() => [
   { label: "rafipas101@gmail.com", href: "mailto:rafipas101@gmail.com" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/muhammadrafipasya" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/muhamadrafipasya" },
   { label: "GitHub", href: "https://github.com/rafipasya22/" },
   { label: t.value.contact.resume, href: "/cv.pdf" },
 ]);
