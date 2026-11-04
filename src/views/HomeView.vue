@@ -72,8 +72,6 @@ onMounted(updateActive);
           </a>
           <a
             href="/cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
             class="bg-gray-700 text-red-500 py-2 px-4 rounded hover:bg-gray-800 space-grotesk-text cursor-pointer"
           >
             {{ t.hero.resume }}
@@ -98,12 +96,23 @@ onMounted(updateActive);
           :class="i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'"
         >
           <div class="w-full md:w-1/2 min-h-[240px]">
+            <div v-if="p.images?.length" class="w-full flex justify-center items-center gap-4">
+              <img
+                v-for="(img, index) in p.images"
+                :key="index"
+                :src="img"
+                :alt="`${p.title} screenshot ${index + 1}`"
+                class="w-1/2 max-w-[220px] aspect-[9/19.5] object-cover rounded-lg"
+              />
+            </div>
+
             <img
-              v-if="p.image"
+              v-else-if="p.image"
               :src="p.image"
               :alt="p.title"
               class="w-full h-full object-cover rounded-lg"
             />
+
             <div
               v-else
               class="w-full h-full min-h-[240px] rounded-lg bg-red-800 border border-red-400 flex items-center justify-center text-sm text-red-100 text-center px-4"

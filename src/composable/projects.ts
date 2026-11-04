@@ -4,6 +4,7 @@ interface Project {
   description: string;
   stack: string[];
   image?: string;
+  images?: string[];
   imageLabel: string;
   slug: string;
   problem: string;
@@ -30,7 +31,8 @@ export const projects: Project[] = [
     overview:
       "Write Arduino and ESP32 programs with blocks or code and flash them straight from the browser, so beginners can focus on algorithm logic instead of syntax. FastAPI compile API on arduino-cli, with clangd over WebSocket for editor features.",
     stack: ["Vue.js", "TypeScript", "FastAPI", "Docker", "Supabase"],
-    imageLabel: "[SCREENSHOT / GIF: Etch flashing a board]",
+    image: "/EtchBlock.png",
+    imageLabel: "/demo.gif",
     slug: "etch",
     problem:
       "While designing a robotics curriculum for elementary and middle school students at Afterschola, I saw that beginners get stuck on text syntax long before they reach the logic: a missing bracket or semicolon is enough to stop a program. Regular IDEs such as the Arduino IDE are text-only and have no block-based mode, so students end up debugging punctuation instead of learning how algorithms work. I built Etch to fix that: a block-based editor that uploads straight to the microcontroller from the browser, so students can focus on algorithm logic instead of syntax.",
@@ -60,7 +62,8 @@ export const projects: Project[] = [
     overview:
       "CRNN on Mel-spectrograms that classifies music as AI-generated or human-made. 95.6% in-domain and 82.5% out-of-domain accuracy, with a web app that shows the prediction and confidence score.",
     stack: ["TensorFlow", "FastAPI", "Vue.js", "Supabase", "Docker"],
-    imageLabel: "[SCREENSHOT: result page with confidence score]",
+    image: "/Orphic.png",
+    imageLabel: "/Orphic.png",
     slug: "orphic",
     problem:
       "AI music generators now produce tracks that can be hard to tell apart from human recordings, and there is no simple way for a listener, an artist or a platform to check where a track came from. Detectors also tend to work well only on the generators they were trained on, so they go stale as soon as a new generator appears. Orphic is built around that second issue: it is tested on generators that were not in the training data (82.5% out-of-domain accuracy, against 95.6% in-domain) to show how well the approach holds up.",
@@ -91,7 +94,8 @@ export const projects: Project[] = [
     overview:
       "Mobile app that turns recordings into transcripts and chaptered summaries. Async job pipeline with faster-whisper, embedding-based chaptering and LLM summaries.",
     stack: ["React Native", "FastAPI", "Supabase", "Docker"],
-    imageLabel: "[SCREENSHOT: chapters and summary screen]",
+    images: ["/tsumari.jpeg", "/tsumariHome.jpeg"],
+    imageLabel: "tsumari",
     slug: "tsumari",
     problem:
       "Lectures and podcasts are long, and going back to find one specific part means scrubbing through hours of audio. A raw transcript does not fix this on its own: it is a long wall of text with no structure. Tsumari turns a recording into chapters, each with a title and a short summary, so you can see what a recording covers and find the part you need.",

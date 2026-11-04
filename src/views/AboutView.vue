@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { localizedProjects } from "../composable/useProjects.ts";
 import { t } from "../composable/i18n.ts";
-import LangSwitch from "../components/langswitch.vue"
+import LangSwitch from "../components/langswitch.vue";
 
 const route = useRoute();
 const slug = route.params.slug as string;
@@ -65,20 +65,36 @@ const project = computed(() => localizedProjects.value.find((p) => p.slug === sl
         >
       </div>
     </div>
-    <div class="w-full md:w-3/4 min-h-[360px] flex items-center justify-center">
+
+    <div class="w-full md:w-3/4 flex-none flex items-center justify-center py-5">
+      <div
+        v-if="project?.images?.length"
+        class="w-full flex justify-center items-start gap-4 md:gap-6"
+      >
+        <img
+          v-for="(img, index) in project.images.slice(0, 2)"
+          :key="index"
+          :src="img"
+          :alt="`${project.title} screenshot ${index + 1}`"
+          class="w-[45%] max-w-[260px] h-auto aspect-[9/19.5] object-contain rounded-lg flex-none"
+        />
+      </div>
+
       <img
-        v-if="project?.image"
-        :src="project?.image"
-        :alt="project?.title"
-        class="w-full h-full object-cover rounded-lg"
+        v-else-if="project?.image"
+        :src="project.image"
+        :alt="project.title"
+        class="w-full h-auto object-cover rounded-lg"
       />
+
       <div
         v-else
-        class="w-full md:w-3/4 h-full min-h-[360px] rounded-lg bg-red-800 border border-red-400 flex items-center justify-center text-sm text-red-100 text-center px-4"
+        class="w-full min-h-[360px] rounded-lg bg-red-800 border border-red-400 flex items-center justify-center text-sm text-red-100 text-center px-4"
       >
         {{ project?.imageLabel }}
       </div>
     </div>
+
     <div class="w-full flex flex-col justify-start items-start gap-3 px-10 md:w-3/4">
       <div class="w-full flex-row flex justify-between gap-3 items-center">
         <div class="timeline flex flex-col justify-start items-start gap-2">
