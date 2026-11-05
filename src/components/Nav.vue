@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { activeSection } from "../composable/active";
 import LangSwitch from "./langswitch.vue";
+
+const props = defineProps({
+  stage: Number,
+});
 </script>
 
 <template>
   <div
-    class="w-full h-16 bg-[#242424] flex items-center justify-between px-5 py-2 position-absolute top-0 z-50"
+    class="w-full h-16 flex items-center justify-between px-5 py-2 absolute top-0 z-50 transition-all duration-500"
+    :class="stage === 1 ? 'bg-[#242424]' : 'bg-transparent'"
   >
     <div class="text-xl text-white font-bold space-grotesk-text">Rafi Pasya</div>
     <div class="flex justify-start items-center gap-3">

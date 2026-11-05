@@ -14,6 +14,7 @@ export const localizedProjects = computed(() => {
       overview: tr.overview,
       timeline: { ...p.timeline, ...tr.timeline },
       architecture: { ...p.architecture, ...tr.architecture },
+      
     };
   });
 });
