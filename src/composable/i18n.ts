@@ -158,7 +158,7 @@ const id: typeof en = {
     },
     {
       company: "Himpunan Mahasiswa Teknik Komputer",
-      pos: "Staf Advokasi dan Kesejahteraan Mahasiswa",
+      pos: "Student Advocacy and Welfare Staff",
       waktu: "Feb 2024 - Jan 2025",
       desc: "Sebagai staf divisi Advokasi dan Kesejahteraan Mahasiswa, saya bertanggung jawab memproses penundaan pembayaran UKT bagi mahasiswa aktif serta keringanan UKT bagi mahasiswa baru.",
     },
