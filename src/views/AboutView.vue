@@ -144,23 +144,7 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
             </div>
           </div>
           <div class="order-2 w-full min-w-0 flex items-center justify-center">
-            <div
-              v-if="project.video?"
-              class="w-full grid grid-cols-2 gap-3 sm:gap-5 items-start justify-items-center"
-            >
-              <video
-                :src="project.video"
-                autoplay
-                loop
-                muted
-                playsinline
-                preload="metadata"
-                :aria-label="project.title"
-                class="block w-full h-auto max-h-[65vh] object-contain rounded-lg mx-auto"
-              ></video>
-            </div>
-
-            <div v-else-if="project.video" v-reveal class="w-full">
+            <div v-if="project.video" v-reveal class="w-full">
               <video
                 :src="project.video"
                 autoplay
