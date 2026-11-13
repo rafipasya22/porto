@@ -2,38 +2,59 @@ import { computed } from "vue";
 import { lang } from "./lang.ts";
 
 const en = {
-  nav: { work: "Work", experience: "Activities", stack: "Stack", contact: "Contact" },
+  nav: {
+    work: "Work",
+    experience: "Activities",
+    stack: "Stack",
+    contact: "Contact",
+  },
+
   tags: ["Computer Engineering", "Bandung", "Open To Work"],
+
   hero: {
-    title: "Fullstack developer with a machine learning and embedded background.",
+    title: "Software Engineer focused on Full-stack Development.",
     subtitle:
-      "Computer Engineering fresh graduate with experience in IoT, fullstack web development and machine learning. Built a web app with a deep learning model that detects AI-generated music at 95.6% accuracy. Comfortable with Python, FastAPI, Vue.js and Docker, building and deploying apps end to end.",
+      "Computer Engineering graduate specializing in full-stack development, with additional experience in machine learning, IoT, and embedded systems. Built a web application powered by a deep learning model that detects AI-generated music with 95.6% accuracy. Experienced with Python, FastAPI, Vue.js, and Docker, building and deploying applications end to end.",
     viewWork: "View My Work",
     resume: "Download Resume",
   },
+
   hero2: {
-  title: "From sensors to servers to models.",
-  subtitle:
-    "I like building things end to end: reading data from hardware, training models on it, and shipping it as a web app people can actually use.",
-  stats: [
-    { value: "95.6%", label: "AI-music detection accuracy" },
-    { value: "48", label: "robotics & Python modules designed" },
-    { value: "2", label: "internships, end to end builds" },
-  ],
-},
+    title: "From sensors to servers to models.",
+    subtitle:
+      "I like building things end to end: reading data from hardware, training models on it, and shipping it as a web app people can actually use.",
+    stats: [
+      { value: "95.6%", label: "AI-music detection accuracy" },
+      { value: "48", label: "robotics & Python modules designed" },
+      { value: "2", label: "internships, end to end builds" },
+    ],
+  },
+
   work: {
     label: "01 / Recent Works",
     title: "Recent Projects I've Worked On",
     open: "Open Project",
   },
+
   cert: { label: "See Certificate" },
-  experience: { label: "02 / Activities", title: "What I've been up to" },
-  stack: { label: "03 / Stack", title: "What I use" },
+
+  experience: {
+    label: "02 / Activities",
+    title: "What I've been up to",
+  },
+
+  stack: {
+    label: "03 / Stack",
+    title: "What I use",
+  },
+
   contact: {
     label: "04 / Contact",
-    title: "Looking for an AI or software engineering role. Let's talk.",
+    title:
+      "Open to software engineering opportunities. Let's build something meaningful together.",
     resume: "Resume (PDF)",
   },
+
   experiences: [
     {
       company: "Afterschola",
@@ -54,6 +75,7 @@ const en = {
       desc: "As a staff member of the Student Advocacy and Welfare division, I was responsible for processing tuition deferrals for active students and reductions for incoming freshmen.",
     },
   ],
+
   certificates: [
     {
       Title: "Belajar Machine Learning untuk Pemula",
@@ -92,6 +114,7 @@ const en = {
       DateEnd: "18th July 2027",
     },
   ],
+
   project: {
     back: "Back to Home",
     details: "Project Details",
@@ -108,41 +131,59 @@ const en = {
 };
 
 const id: typeof en = {
-  nav: { work: "Proyek", experience: "Aktivitas", stack: "Teknologi", contact: "Kontak" },
+  nav: {
+    work: "Proyek",
+    experience: "Aktivitas",
+    stack: "Teknologi",
+    contact: "Kontak",
+  },
+
   tags: ["Teknik Komputer", "Bandung", "Siap Bekerja"],
+
   hero: {
-    title:
-      "Fullstack developer dengan latar belakang di bidang machine learning dan sistem tertanam.",
+    title: "Software Engineer dengan fokus pada Full-stack Development.",
     subtitle:
-      "Fresh graduate Teknik Komputer dengan pengalaman di bidang IoT, fullstack web development, dan machine learning. Pernah membangun aplikasi web dengan model deep learning untuk mendeteksi musik buatan AI dengan akurasi 95.6%. Terbiasa memakai Python, FastAPI, Vue.js, dan Docker untuk membangun dan men-deploy aplikasi secara end-to-end.",
+      "Lulusan Teknik Komputer dengan fokus pada pengembangan aplikasi full-stack serta pengalaman tambahan di bidang machine learning, IoT, dan embedded systems. Pernah membangun aplikasi web dengan model deep learning untuk mendeteksi musik buatan AI dengan akurasi 95.6%. Berpengalaman menggunakan Python, FastAPI, Vue.js, dan Docker untuk membangun serta men-deploy aplikasi secara end-to-end.",
     viewWork: "Lihat Proyek Saya",
     resume: "Unduh CV",
-  },hero2: {
-  title: "Dari sensor, ke server, sampai model.",
-  subtitle:
-    "Saya suka membangun sesuatu secara end-to-end: membaca data dari hardware, melatih model dengannya, lalu merilisnya sebagai aplikasi web yang benar-benar bisa dipakai.",
-  stats: [
-    { value: "95.6%", label: "akurasi deteksi musik AI" },
-    { value: "48", label: "modul robotika & Python dirancang" },
-    { value: "2", label: "magang, membangun end-to-end" },
-  ],
-},
+  },
+
+  hero2: {
+    title: "Dari sensor, ke server, sampai model.",
+    subtitle:
+      "Saya suka membangun sesuatu secara end-to-end: membaca data dari hardware, melatih model dengannya, lalu merilisnya sebagai aplikasi web yang benar-benar bisa dipakai.",
+    stats: [
+      { value: "95.6%", label: "akurasi deteksi musik AI" },
+      { value: "48", label: "modul robotika & Python dirancang" },
+      { value: "2", label: "magang, membangun end-to-end" },
+    ],
+  },
+
   work: {
     label: "01 / Proyek Terbaru",
     title: "Proyek yang Baru Saya Kerjakan",
     open: "Lihat Proyek",
   },
+
   experience: {
     label: "02 / Aktivitas",
     title: "Apa saja yang sudah saya kerjakan",
   },
-  stack: { label: "03 / Teknologi", title: "Yang saya pakai" },
+
+  stack: {
+    label: "03 / Teknologi",
+    title: "Yang saya pakai",
+  },
+
   contact: {
     label: "04 / Kontak",
-    title: "Sedang mencari posisi di bidang AI atau software engineering. Yuk, ngobrol!",
+    title:
+      "Terbuka untuk peluang di bidang software engineering. Mari bangun sesuatu yang bermakna bersama.",
     resume: "CV (PDF)",
   },
+
   cert: { label: "Lihat Sertifikat" },
+
   experiences: [
     {
       company: "Afterschola",
@@ -163,6 +204,7 @@ const id: typeof en = {
       desc: "Sebagai staf divisi Advokasi dan Kesejahteraan Mahasiswa, saya bertanggung jawab memproses penundaan pembayaran UKT bagi mahasiswa aktif serta keringanan UKT bagi mahasiswa baru.",
     },
   ],
+
   certificates: [
     {
       Title: "Belajar Machine Learning untuk Pemula",
@@ -201,6 +243,7 @@ const id: typeof en = {
       DateEnd: "18 Juli 2027",
     },
   ],
+
   project: {
     back: "Kembali ke Beranda",
     details: "Detail Proyek",
