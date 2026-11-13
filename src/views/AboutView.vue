@@ -254,82 +254,91 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
               </a>
             </div>
           </div>
+<div
+  class="
+    order-2
+    w-full min-w-0
+    flex items-center justify-center
+  "
+>
+  <div
+    v-if="project.videos?.length"
+    class="
+      w-full
+      grid grid-cols-2
+      gap-3 sm:gap-5
+      items-start
+      justify-items-center
+    "
+  >
+    <div
+      v-for="(vid, index) in project.videos.slice(0, 2)"
+      :key="index"
+      v-reveal="index * 150"
+      class="
+        w-full max-w-[240px]
+        min-w-0
+      "
+    >
+      <video
+        :src="vid"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        :aria-label="`${project.title} demo ${index + 1}`"
+        class="
+          block w-full h-auto
+          aspect-[9/19.5]
+          object-contain
+          rounded-lg
+          transition-transform duration-300
+          hover:-translate-y-2
+        "
+      ></video>
+    </div>
+  </div>
 
-          <div
-            class="
-              order-2
-              w-full min-w-0
-              flex items-center justify-center
-            "
-          >
-            <div
-              v-if="project.images?.length"
-              class="
-                w-full
-                grid grid-cols-2
-                gap-3 sm:gap-5
-                items-start
-                justify-items-center
-              "
-            >
-              <div
-                v-for="(img, index) in project.images.slice(0, 2)"
-                :key="index"
-                v-reveal="index * 150"
-                class="
-                  w-full max-w-[240px]
-                  min-w-0
-                "
-              >
-                <img
-                  :src="img"
-                  :alt="`${project.title} screenshot ${index + 1}`"
-                  class="
-                    block w-full h-auto
-                    aspect-[9/19.5]
-                    object-contain
-                    rounded-lg
-                    transition-transform duration-300
-                    hover:-translate-y-2
-                  "
-                />
-              </div>
-            </div>
+  <div
+    v-else-if="project.video"
+    v-reveal
+    class="w-full"
+  >
+    <video
+      :src="project.video"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      :aria-label="project.title"
+      class="
+        block w-full h-auto
+        max-h-[65vh]
+        object-contain
+        rounded-lg
+      "
+    ></video>
+  </div>
 
-            <div
-              v-else-if="project.image"
-              v-reveal
-              class="w-full"
-            >
-              <img
-                :src="project.image"
-                :alt="project.title"
-                class="
-                  block w-full h-auto
-                  max-h-[65vh]
-                  object-contain
-                  rounded-lg
-                "
-              />
-            </div>
-
-            <div
-              v-else
-              v-reveal
-              class="
-                w-full min-h-[240px] sm:min-h-[300px]
-                rounded-lg
-                bg-red-800
-                border border-red-400
-                flex items-center justify-center
-                text-sm text-red-100
-                text-center
-                px-4
-              "
-            >
-              {{ project.imageLabel }}
-            </div>
-          </div>
+  <div
+    v-else
+    v-reveal
+    class="
+      w-full min-h-[240px] sm:min-h-[300px]
+      rounded-lg
+      bg-red-800
+      border border-red-400
+      flex items-center justify-center
+      text-sm text-red-100
+      text-center
+      px-4
+    "
+  >
+    {{ project.imageLabel }}
+  </div>
+</div>
         </section>
 
         <hr
