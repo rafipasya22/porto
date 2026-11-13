@@ -37,7 +37,7 @@ export const projects: Project[] = [
     image: "/EtchBlock.png",
     imageLabel: "/demo.gif",
     slug: "etch",
-    videos: [demo],
+    videos: ["/demo.mp4"],
     problem:
       "While designing a robotics curriculum for elementary and middle school students at Afterschola, I saw that beginners get stuck on text syntax long before they reach the logic: a missing bracket or semicolon is enough to stop a program. Regular IDEs such as the Arduino IDE are text-only and have no block-based mode, so students end up debugging punctuation instead of learning how algorithms work. I built Etch to fix that: a block-based editor that uploads straight to the microcontroller from the browser, so students can focus on algorithm logic instead of syntax.",
     timeline: {
