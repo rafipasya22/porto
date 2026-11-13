@@ -1,4 +1,3 @@
-import demo from "../assets/demo.mp4";
 interface Project {
   title: string;
   tags: string[];
