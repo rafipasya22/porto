@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { computed, ref, watch, type Directive } from "vue";
 import { useRoute, RouterLink } from "vue-router";
@@ -11,9 +10,7 @@ const scroller = ref<HTMLElement | null>(null);
 
 const slug = computed(() => route.params.slug as string);
 
-const idx = computed(() =>
-  localizedProjects.value.findIndex((p) => p.slug === slug.value),
-);
+const idx = computed(() => localizedProjects.value.findIndex((p) => p.slug === slug.value));
 
 const project = computed(() => localizedProjects.value[idx.value]);
 
@@ -57,44 +54,17 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
 <template>
   <div
     ref="scroller"
-    class="
-      w-full h-screen
-      overflow-y-auto scroll-smooth scrollbar-custom
-      bg-[#242424]
-      flex flex-col items-center
-      px-4 sm:px-6 lg:px-10
-      pb-10
-    "
+    class="w-full h-screen overflow-y-auto scroll-smooth scrollbar-custom bg-[#242424] flex flex-col items-center px-4 sm:px-6 lg:px-10 pb-10"
   >
     <header
-      class="
-        sticky top-0 z-30
-        w-full max-w-6xl
-        min-h-16 shrink-0
-        flex items-center justify-between
-        gap-3
-        px-1 sm:px-5
-        bg-[#242424]/90 backdrop-blur-md
-        border-b border-white/5
-      "
+      class="sticky top-0 z-30 w-full max-w-6xl min-h-16 shrink-0 flex items-center justify-between gap-3 px-1 sm:px-5 bg-[#242424]/90 backdrop-blur-md border-b border-white/5"
     >
       <RouterLink
         :to="{ name: 'home' }"
-        class="
-          flex items-center gap-2
-          text-sm text-red-500
-          hover:text-red-500
-          transition-colors duration-300
-          space-grotesk-text
-          group
-        "
+        class="flex items-center gap-2 text-sm text-red-500 hover:text-red-500 transition-colors duration-300 space-grotesk-text group"
       >
         <span
-          class="
-            material-symbols-outlined
-            transition-transform duration-300
-            group-hover:-translate-x-1
-          "
+          class="material-symbols-outlined transition-transform duration-300 group-hover:-translate-x-1"
         >
           arrow_back
         </span>
@@ -103,13 +73,7 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
       </RouterLink>
 
       <div class="flex items-center gap-3 sm:gap-5 shrink-0">
-        <p
-          class="
-            hidden sm:block
-            text-gray-500 text-sm
-            space-grotesk-text
-          "
-        >
+        <p class="hidden sm:block text-gray-500 text-sm space-grotesk-text">
           {{ t.project.details }}
         </p>
 
@@ -117,46 +81,15 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
       </div>
     </header>
 
-    <div
-      :key="slug"
-      class="
-        w-full max-w-6xl
-        flex flex-col
-        gap-12 sm:gap-16
-        pt-8 sm:pt-12
-        pb-12
-      "
-    >
+    <div :key="slug" class="w-full max-w-6xl flex flex-col gap-12 sm:gap-16 pt-8 sm:pt-12 pb-12">
       <template v-if="project">
         <section
-          class="
-            w-full
-            grid grid-cols-1
-            md:grid-cols-2
-            gap-8 md:gap-10 lg:gap-16
-            items-center
-          "
+          class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center"
         >
-          <div
-            class="
-              order-1
-              min-w-0
-              flex flex-col
-              items-start
-              gap-4 sm:gap-5
-            "
-          >
-            <div
-              v-reveal="0"
-              class="flex flex-wrap items-center gap-x-2 gap-y-1"
-            >
+          <div class="order-1 min-w-0 flex flex-col items-start gap-4 sm:gap-5">
+            <div v-reveal="0" class="flex flex-wrap items-center gap-x-2 gap-y-1">
               <template v-for="(tag, i) in project.tags" :key="tag">
-                <span
-                  v-if="i"
-                  class="text-xs text-red-500 space-grotesk-text"
-                >
-                  ·
-                </span>
+                <span v-if="i" class="text-xs text-red-500 space-grotesk-text"> · </span>
 
                 <span class="text-xs text-red-500 space-grotesk-text">
                   {{ tag }}
@@ -166,27 +99,14 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
 
             <h1
               v-reveal="100"
-              class="
-                w-full
-                text-3xl sm:text-4xl lg:text-5xl
-                text-white font-bold
-                leading-tight
-                break-words
-                space-grotesk-text
-              "
+              class="w-full text-3xl sm:text-4xl lg:text-5xl text-white font-bold leading-tight break-words space-grotesk-text"
             >
               {{ project.title }}
             </h1>
 
             <p
               v-reveal="200"
-              class="
-                w-full max-w-prose
-                text-sm sm:text-base
-                leading-relaxed
-                text-gray-300
-                space-grotesk-text
-              "
+              class="w-full max-w-prose text-sm sm:text-base leading-relaxed text-gray-300 space-grotesk-text"
             >
               {{ project.description }}
             </p>
@@ -194,40 +114,18 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
             <div
               v-if="project.links.demo"
               v-reveal="300"
-              class="
-                max-w-prose
-                text-xs leading-relaxed
-                text-gray-500
-                space-grotesk-text
-              "
+              class="max-w-prose text-xs leading-relaxed text-gray-500 space-grotesk-text"
             >
               {{ t.project.warning }}
             </div>
 
-            <div
-              v-reveal="400"
-              class="
-                flex flex-wrap
-                items-center
-                gap-3
-                pt-1
-              "
-            >
+            <div v-reveal="400" class="flex flex-wrap items-center gap-3 pt-1">
               <a
                 v-if="project.links.demo"
                 :href="project.links.demo"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="
-                  bg-red-500 text-white
-                  py-2.5 px-4
-                  rounded
-                  hover:bg-red-600
-                  transition-colors duration-300
-                  space-grotesk-text
-                  text-sm
-                  flex items-center gap-2
-                "
+                class="bg-red-500 text-white py-2.5 px-4 rounded hover:bg-red-600 transition-colors duration-300 space-grotesk-text text-sm flex items-center gap-2"
               >
                 <i class="fa-solid fa-globe"></i>
                 {{ t.project.demo }}
@@ -238,187 +136,88 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
                 :href="project.links.github"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="
-                  bg-gray-700 text-red-500
-                  py-2.5 px-4
-                  rounded
-                  hover:bg-gray-800
-                  transition-colors duration-300
-                  space-grotesk-text
-                  text-sm
-                  flex items-center gap-2
-                "
+                class="bg-gray-700 text-red-500 py-2.5 px-4 rounded hover:bg-gray-800 transition-colors duration-300 space-grotesk-text text-sm flex items-center gap-2"
               >
                 <i class="fa-brands fa-github"></i>
                 {{ t.project.github }}
               </a>
             </div>
           </div>
-<div
-  class="
-    order-2
-    w-full min-w-0
-    flex items-center justify-center
-  "
->
-  <div
-    v-if="project.videos?.length"
-    class="
-      w-full
-      grid grid-cols-2
-      gap-3 sm:gap-5
-      items-start
-      justify-items-center
-    "
-  >
-    <div
-      v-for="(vid, index) in project.videos.slice(0, 2)"
-      :key="index"
-      v-reveal="index * 150"
-      class="
-        w-full max-w-[240px]
-        min-w-0
-      "
-    >
-      <video
-        :src="vid"
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="metadata"
-        :aria-label="`${project.title} demo ${index + 1}`"
-        class="
-          block w-full h-auto
-          aspect-[9/19.5]
-          object-contain
-          rounded-lg
-          transition-transform duration-300
-          hover:-translate-y-2
-        "
-      ></video>
-    </div>
-  </div>
+          <div class="order-2 w-full min-w-0 flex items-center justify-center">
+            <div
+              v-if="project.video?"
+              class="w-full grid grid-cols-2 gap-3 sm:gap-5 items-start justify-items-center"
+            >
+              <video
+                :src="project.video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                :aria-label="project.title"
+                class="block w-full h-auto max-h-[65vh] object-contain rounded-lg mx-auto"
+              ></video>
+            </div>
 
-  <div
-    v-else-if="project.video"
-    v-reveal
-    class="w-full"
-  >
-    <video
-      :src="project.video"
-      autoplay
-      loop
-      muted
-      playsinline
-      preload="metadata"
-      :aria-label="project.title"
-      class="
-        block w-full h-auto
-        max-h-[65vh]
-        object-contain
-        rounded-lg
-      "
-    ></video>
-  </div>
+            <div v-else-if="project.video" v-reveal class="w-full">
+              <video
+                :src="project.video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                :aria-label="project.title"
+                class="block w-full h-auto max-h-[65vh] object-contain rounded-lg"
+              ></video>
+            </div>
 
-  <div
-    v-else
-    v-reveal
-    class="
-      w-full min-h-[240px] sm:min-h-[300px]
-      rounded-lg
-      bg-red-800
-      border border-red-400
-      flex items-center justify-center
-      text-sm text-red-100
-      text-center
-      px-4
-    "
-  >
-    {{ project.imageLabel }}
-  </div>
-</div>
+            <div
+              v-else
+              v-reveal
+              class="w-full min-h-[240px] sm:min-h-[300px] rounded-lg bg-red-800 border border-red-400 flex items-center justify-center text-sm text-red-100 text-center px-4"
+            >
+              {{ project.imageLabel }}
+            </div>
+          </div>
         </section>
 
-        <hr
-          v-reveal.line
-          class="w-full border-t border-gray-700"
-        />
+        <hr v-reveal.line class="w-full border-t border-gray-700" />
 
         <section
-          class="
-            w-full
-            grid grid-cols-1
-            lg:grid-cols-[minmax(0,1fr)_280px]
-            gap-10 lg:gap-16
-            items-start
-          "
+          class="w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-10 lg:gap-16 items-start"
         >
           <div class="min-w-0 flex flex-col gap-10 sm:gap-12">
             <div class="flex flex-col gap-3">
-              <div
-                v-reveal
-                class="flex items-baseline gap-3"
-              >
-                <span class="text-sm text-red-500 space-grotesk-text">
-                  01
-                </span>
+              <div v-reveal class="flex items-baseline gap-3">
+                <span class="text-sm text-red-500 space-grotesk-text"> 01 </span>
 
-                <h2
-                  class="
-                    text-xl sm:text-2xl lg:text-3xl
-                    text-white font-bold
-                    space-grotesk-text
-                  "
-                >
+                <h2 class="text-xl sm:text-2xl lg:text-3xl text-white font-bold space-grotesk-text">
                   {{ t.project.problem }}
                 </h2>
               </div>
 
               <p
                 v-reveal="100"
-                class="
-                  max-w-prose
-                  text-sm sm:text-base
-                  leading-relaxed
-                  text-gray-400
-                  space-grotesk-text
-                "
+                class="max-w-prose text-sm sm:text-base leading-relaxed text-gray-400 space-grotesk-text"
               >
                 {{ project.problem }}
               </p>
             </div>
 
             <div class="flex flex-col gap-3">
-              <div
-                v-reveal
-                class="flex items-baseline gap-3"
-              >
-                <span class="text-sm text-red-500 space-grotesk-text">
-                  02
-                </span>
+              <div v-reveal class="flex items-baseline gap-3">
+                <span class="text-sm text-red-500 space-grotesk-text"> 02 </span>
 
-                <h2
-                  class="
-                    text-xl sm:text-2xl lg:text-3xl
-                    text-white font-bold
-                    space-grotesk-text
-                  "
-                >
+                <h2 class="text-xl sm:text-2xl lg:text-3xl text-white font-bold space-grotesk-text">
                   {{ t.project.architecture }}
                 </h2>
               </div>
 
               <p
                 v-reveal="100"
-                class="
-                  max-w-prose
-                  text-sm sm:text-base
-                  leading-relaxed
-                  text-gray-400
-                  space-grotesk-text
-                "
+                class="max-w-prose text-sm sm:text-base leading-relaxed text-gray-400 space-grotesk-text"
               >
                 {{ project.architecture?.description }}
               </p>
@@ -427,29 +226,14 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
 
           <aside
             v-reveal="150"
-            class="
-              w-full min-w-0
-              order-first lg:order-none
-              flex flex-col gap-6
-              lg:sticky lg:top-20
-              self-start
-              border border-gray-700
-              rounded-lg
-              p-4 sm:p-5
-            "
+            class="w-full min-w-0 order-first lg:order-none flex flex-col gap-6 lg:sticky lg:top-20 self-start border border-gray-700 rounded-lg p-4 sm:p-5"
           >
             <div class="flex flex-col gap-2">
               <div class="text-sm text-gray-500 space-grotesk-text">
                 {{ t.project.timeline }}
               </div>
 
-              <div
-                class="
-                  text-base sm:text-lg
-                  text-red-500 font-bold
-                  space-grotesk-text
-                "
-              >
+              <div class="text-base sm:text-lg text-red-500 font-bold space-grotesk-text">
                 {{ project.timeline.start }} - {{ project.timeline.end }}
               </div>
             </div>
@@ -465,15 +249,7 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
                 <span
                   v-for="s in project.stack"
                   :key="s"
-                  class="
-                    text-xs text-red-500
-                    border border-gray-600
-                    rounded
-                    px-3 py-1.5
-                    space-grotesk-text
-                    transition-colors duration-300
-                    hover:border-red-500
-                  "
+                  class="text-xs text-red-500 border border-gray-600 rounded px-3 py-1.5 space-grotesk-text transition-colors duration-300 hover:border-red-500"
                 >
                   {{ s }}
                 </span>
@@ -485,37 +261,18 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
         <section class="w-full">
           <div
             v-reveal
-            class="
-              w-full min-h-[180px] sm:min-h-[240px]
-              flex items-center justify-center
-            "
+            class="w-full min-h-[180px] sm:min-h-[240px] flex items-center justify-center"
           >
             <img
               v-if="project.architecture?.diagram"
               :src="project.architecture.diagram"
               :alt="`${project.title} architecture diagram`"
-              class="
-                block w-full h-auto
-                max-h-[75vh]
-                object-contain
-                bg-black/20
-                p-2 sm:p-4
-                rounded-lg
-              "
+              class="block w-full h-auto max-h-[75vh] object-contain bg-black/20 p-2 sm:p-4 rounded-lg"
             />
 
             <div
               v-else
-              class="
-                w-full min-h-[180px] sm:min-h-[240px]
-                rounded-lg
-                bg-red-800
-                border border-red-400
-                flex items-center justify-center
-                text-sm text-red-100
-                text-center
-                px-4
-              "
+              class="w-full min-h-[180px] sm:min-h-[240px] rounded-lg bg-red-800 border border-red-400 flex items-center justify-center text-sm text-red-100 text-center px-4"
             >
               {{ project.imageLabel }}
             </div>
@@ -523,21 +280,10 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
         </section>
 
         <section class="w-full flex flex-col gap-5">
-          <div
-            v-reveal
-            class="flex items-baseline gap-3"
-          >
-            <span class="text-sm text-red-500 space-grotesk-text">
-              03
-            </span>
+          <div v-reveal class="flex items-baseline gap-3">
+            <span class="text-sm text-red-500 space-grotesk-text"> 03 </span>
 
-            <h2
-              class="
-                text-xl sm:text-2xl lg:text-3xl
-                text-white font-bold
-                space-grotesk-text
-              "
-            >
+            <h2 class="text-xl sm:text-2xl lg:text-3xl text-white font-bold space-grotesk-text">
               {{ t.project.next }}
             </h2>
           </div>
@@ -550,28 +296,13 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
               class="h-full"
             >
               <div
-                class="
-                  h-full
-                  border border-gray-700
-                  rounded-lg
-                  p-4 sm:p-5
-                  flex flex-col gap-3
-                  transition-colors duration-300
-                  hover:border-red-500
-                "
+                class="h-full border border-gray-700 rounded-lg p-4 sm:p-5 flex flex-col gap-3 transition-colors duration-300 hover:border-red-500"
               >
                 <span class="text-sm text-red-500 space-grotesk-text">
                   {{ String(i + 1).padStart(2, "0") }}
                 </span>
 
-                <p
-                  class="
-                    text-sm
-                    leading-relaxed
-                    text-gray-300
-                    space-grotesk-text
-                  "
-                >
+                <p class="text-sm leading-relaxed text-gray-300 space-grotesk-text">
                   {{ item }}
                 </p>
               </div>
@@ -580,17 +311,7 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
         </section>
       </template>
 
-      <div
-        v-else
-        class="
-          w-full
-          text-gray-400
-          text-sm
-          space-grotesk-text
-        "
-      >
-        Project not found.
-      </div>
+      <div v-else class="w-full text-gray-400 text-sm space-grotesk-text">Project not found.</div>
     </div>
   </div>
 </template>
