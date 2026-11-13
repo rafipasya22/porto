@@ -152,7 +152,6 @@ const vReveal: Directive<HTMLElement, number | undefined> = {
                 muted
                 playsinline
                 preload="metadata"
-                :aria-label="project.title"
                 class="block w-full h-auto max-h-[65vh] object-contain rounded-lg"
               ></video>
             </div>
